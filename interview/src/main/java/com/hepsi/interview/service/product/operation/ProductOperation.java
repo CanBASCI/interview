@@ -1,6 +1,5 @@
 package com.hepsi.interview.service.product.operation;
 
-import com.hepsi.interview.service.product.data.entity.ProductEntity;
 import com.hepsi.interview.service.product.dto.CreateProductDto;
 import com.hepsi.interview.service.product.dto.ProductDto;
 import com.hepsi.interview.service.product.mapper.ProductMapper;

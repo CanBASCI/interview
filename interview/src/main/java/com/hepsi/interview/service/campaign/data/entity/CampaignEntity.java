@@ -1,5 +1,6 @@
 package com.hepsi.interview.service.campaign.data.entity;
 
+import com.hepsi.interview.service.product.data.entity.ProductEntity;
 import com.hepsi.interview.utils.Status;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,7 +9,7 @@ import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
-@Table(name="campaign")
+@Table(name="hb_campaign")
 @Getter
 @Setter
 public class CampaignEntity {
@@ -19,8 +20,12 @@ public class CampaignEntity {
     @Column(name="NAME", unique = true, nullable = false)
     public String name;
 
-    @Column(name="PRODUCT_CODE", unique = true, nullable = false)
-    public String productCode;
+    //@Column(name="PRODUCT_CODE", unique = true, nullable = false)
+    //public String productCode;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "product_id", referencedColumnName = "id")
+    public ProductEntity product;
 
     @Column(name="DURATION", columnDefinition = "integer default 1")
     public Integer duration;

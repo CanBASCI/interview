@@ -9,4 +9,6 @@ import java.util.UUID;
 @Repository
 public interface CampaignRepository extends JpaRepository<CampaignEntity, UUID> {
     CampaignEntity findByName(String name);
+
+    CampaignEntity findByProductId(UUID productId);
 }

@@ -1,5 +1,6 @@
 package com.hepsi.interview.service.order.data.entity;
 
+import com.hepsi.interview.service.product.data.entity.ProductEntity;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -7,17 +8,19 @@ import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
-@Table(name="order")
+@Table(name="hb_order")
 @Getter
 @Setter
 public class OrderEntity {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private UUID id;
+    public UUID id;
 
     @Column(name="QUANTITY")
-    private Integer quantity;
+    public Integer quantity;
 
-    @Column(name="PRODUCT_CODE", unique = true, nullable = false)
-    public String productCode;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "product_id", referencedColumnName = "id")
+    public ProductEntity product;
+
 }

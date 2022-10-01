@@ -1,8 +1,8 @@
 package com.hepsi.interview.service.order.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.hepsi.interview.service.product.dto.ProductDto;
 import lombok.*;
-
-import java.math.BigDecimal;
 import java.util.UUID;
 
 @AllArgsConstructor
@@ -10,13 +10,11 @@ import java.util.UUID;
 @Getter
 @Setter
 @Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class OrderDto {
 
     public UUID id;
 
-    public String productCode;
-
-    public BigDecimal price;
-
-    public Integer stock;
+    public ProductDto product;
+    public Integer quantity;
 }

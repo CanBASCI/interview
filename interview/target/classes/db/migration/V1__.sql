@@ -6,7 +6,7 @@ CREATE TABLE hb_campaign (
    price_man_limit INTEGER,
    target_sales_count INTEGER,
    total_sales INTEGER,
-   status VARCHAR(255),
+   status VARCHAR(32),
    CONSTRAINT pk_hb_campaign PRIMARY KEY (id)
 );
 

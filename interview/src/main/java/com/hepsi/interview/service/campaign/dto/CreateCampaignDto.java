@@ -1,7 +1,10 @@
 package com.hepsi.interview.service.campaign.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.hepsi.interview.utils.Status;
 import lombok.*;
+
+import java.util.UUID;
 
 @Data
 @NoArgsConstructor
@@ -10,11 +13,10 @@ import lombok.*;
 @Setter
 public class CreateCampaignDto {
     public String name;
-    public String productCode;
+    public UUID productId;
     public Integer duration;
     public Integer priceManLimit;
     public Integer targetSalesCount;
-    //todo bu nedir
-    public Integer totalSales;
+    @JsonIgnore
     public Status status;
 }

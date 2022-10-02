@@ -7,6 +7,7 @@ import com.hepsi.interview.service.campaign.dto.CreateCampaignDto;
 import com.hepsi.interview.service.campaign.dto.IncreaseDto;
 import com.hepsi.interview.service.product.data.entity.ProductEntity;
 import com.hepsi.interview.service.product.dto.ProductDto;
+import com.hepsi.interview.utils.Status;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -15,7 +16,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-10-02T13:41:23+0300",
+    date = "2022-10-02T14:55:44+0300",
     comments = "version: 1.5.2.Final, compiler: javac, environment: Java 18.0.2 (Oracle Corporation)"
 )
 @Component
@@ -64,12 +65,17 @@ public class CampaignMapperImpl implements CampaignMapper {
 
         CampaignEntity campaignEntity = new CampaignEntity();
 
+        campaignEntity.product = createCampaignDtoToProductEntity( createCampaignDto );
+        if ( createCampaignDto.status != null ) {
+            campaignEntity.status = createCampaignDto.status;
+        }
+        else {
+            campaignEntity.status = Status.PASSIVE;
+        }
         campaignEntity.name = createCampaignDto.name;
         campaignEntity.duration = createCampaignDto.duration;
         campaignEntity.priceManLimit = createCampaignDto.priceManLimit;
         campaignEntity.targetSalesCount = createCampaignDto.targetSalesCount;
-        campaignEntity.totalSales = createCampaignDto.totalSales;
-        campaignEntity.status = createCampaignDto.status;
 
         return campaignEntity;
     }
@@ -113,5 +119,17 @@ public class CampaignMapperImpl implements CampaignMapper {
         }
 
         return list;
+    }
+
+    protected ProductEntity createCampaignDtoToProductEntity(CreateCampaignDto createCampaignDto) {
+        if ( createCampaignDto == null ) {
+            return null;
+        }
+
+        ProductEntity productEntity = new ProductEntity();
+
+        productEntity.id = createCampaignDto.productId;
+
+        return productEntity;
     }
 }

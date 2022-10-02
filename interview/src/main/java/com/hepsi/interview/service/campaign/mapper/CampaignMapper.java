@@ -17,5 +17,7 @@ public interface CampaignMapper {
     CampaignDto toDto(CampaignEntity campaignEntity);
     List<CampaignDto> toDtos(List<CampaignEntity> campaignEntities);
 
+    @Mapping(target = "product.id", source = "productId")
+    @Mapping(target = "status", defaultValue = "PASSIVE")
     CampaignEntity toEntity(CreateCampaignDto createCampaignDto);
 }

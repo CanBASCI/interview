@@ -40,7 +40,7 @@ public class CampaignEntity {
     @Column(name="TOTAL_SALES")
     public Integer totalSales;
 
-    @Column(name="STATUS")
+    @Column(name="STATUS", length = 32)
     @Enumerated(EnumType.STRING)
     public Status status;
 

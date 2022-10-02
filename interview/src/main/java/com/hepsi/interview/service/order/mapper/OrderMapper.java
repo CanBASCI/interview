@@ -11,12 +11,12 @@ import java.util.List;
 @Mapper(componentModel="spring")
 public interface OrderMapper {
 
-    //@Mapping(target = "productCode", source = "product.productCode")
     @Mapping(target = "product.orders", ignore = true)
     @Mapping(target = "product.campaigns", ignore = true)
     OrderDto toDto(OrderEntity orderEntity);
 
     List<OrderDto> toDtos(List<OrderEntity> orderEntities);
 
+    @Mapping(target = "product.id", source = "productId")
     OrderEntity toEntity(CreateOrderDto createOrderDto);
 }

@@ -6,70 +6,56 @@
   <component name="ChangeListManager">
     <list default="true" id="c6a7dcf4-989c-438c-948f-cb17dc1329f9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/src/main/java/com/hb/interview/InterviewApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/interview/src/main/java/com/hepsi/interview/InterviewApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/src/main/java/com/hb/interview/controller/CampaignController.java" beforeDir="false" afterPath="$PROJECT_DIR$/interview/src/main/java/com/hepsi/interview/controller/CampaignController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/src/main/java/com/hb/interview/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/interview/src/main/java/com/hepsi/interview/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/src/main/java/com/hb/interview/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/interview/src/main/java/com/hepsi/interview/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/src/main/java/com/hb/interview/facade/ProductFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/interview/src/main/java/com/hepsi/interview/facade/ProductFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/src/main/java/com/hb/interview/service/campaign/data/CampaignRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/interview/src/main/java/com/hepsi/interview/service/campaign/data/CampaignRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/src/main/java/com/hb/interview/service/campaign/data/entity/CampaignEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/interview/src/main/java/com/hepsi/interview/service/campaign/data/entity/CampaignEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/src/main/java/com/hb/interview/service/campaign/dto/CampaignDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/interview/src/main/java/com/hepsi/interview/service/campaign/dto/CampaignDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/src/main/java/com/hb/interview/service/campaign/dto/CreateCampaignDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/interview/src/main/java/com/hepsi/interview/service/campaign/dto/CreateCampaignDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/src/main/java/com/hb/interview/service/campaign/mapper/CampaignMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/interview/src/main/java/com/hepsi/interview/service/campaign/mapper/CampaignMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/src/main/java/com/hb/interview/service/campaign/operation/CampaignOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/interview/src/main/java/com/hepsi/interview/service/campaign/operation/CampaignOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/src/main/java/com/hb/interview/service/order/data/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/interview/src/main/java/com/hepsi/interview/service/order/data/OrderRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/src/main/java/com/hb/interview/service/order/data/entity/OrderEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/interview/src/main/java/com/hepsi/interview/service/order/data/entity/OrderEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/src/main/java/com/hb/interview/service/order/dto/CreateOrderDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/interview/src/main/java/com/hepsi/interview/service/order/dto/CreateOrderDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/src/main/java/com/hb/interview/service/order/dto/OrderDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/interview/src/main/java/com/hepsi/interview/service/order/dto/OrderDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/src/main/java/com/hb/interview/service/order/mapper/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/interview/src/main/java/com/hepsi/interview/service/order/mapper/OrderMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/src/main/java/com/hb/interview/service/order/operation/OrderOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/interview/src/main/java/com/hepsi/interview/service/order/operation/OrderOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/src/main/java/com/hb/interview/service/product/data/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/interview/src/main/java/com/hepsi/interview/service/product/data/ProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/src/main/java/com/hb/interview/service/product/data/entity/ProductEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/interview/src/main/java/com/hepsi/interview/service/product/data/entity/ProductEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/src/main/java/com/hb/interview/service/product/dto/CreateProductDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/interview/src/main/java/com/hepsi/interview/service/product/dto/CreateProductDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/src/main/java/com/hb/interview/service/product/dto/ProductDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/interview/src/main/java/com/hepsi/interview/service/product/dto/ProductDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/src/main/java/com/hb/interview/service/product/mapper/ProductMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/interview/src/main/java/com/hepsi/interview/service/product/mapper/ProductMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/src/main/java/com/hb/interview/service/product/operation/ProductOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/interview/src/main/java/com/hepsi/interview/service/product/operation/ProductOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/src/main/java/com/hb/interview/utils/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/interview/src/main/java/com/hepsi/interview/utils/Status.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/src/main/java/com/hb/interview/utils/calculate/CalculateFirstCampaign.java" beforeDir="false" afterPath="$PROJECT_DIR$/interview/src/main/java/com/hepsi/interview/utils/calculate/CalculateFirstCampaign.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/src/main/java/com/hb/interview/utils/calculate/CalculateSecondCampaignImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/interview/src/main/java/com/hepsi/interview/utils/calculate/CalculateSecondCampaignImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/src/main/java/com/hb/interview/utils/calculate/ICalculate.java" beforeDir="false" afterPath="$PROJECT_DIR$/interview/src/main/java/com/hepsi/interview/utils/calculate/ICalculate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/src/main/java/com/hepsi/interview/service/campaign/data/entity/CampaignEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/interview/src/main/java/com/hepsi/interview/service/campaign/data/entity/CampaignEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/src/main/java/com/hepsi/interview/service/campaign/dto/CreateCampaignDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/interview/src/main/java/com/hepsi/interview/service/campaign/dto/CreateCampaignDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/src/main/java/com/hepsi/interview/service/campaign/mapper/CampaignMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/interview/src/main/java/com/hepsi/interview/service/campaign/mapper/CampaignMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/src/main/java/com/hepsi/interview/service/campaign/operation/CampaignOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/interview/src/main/java/com/hepsi/interview/service/campaign/operation/CampaignOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/src/main/java/com/hepsi/interview/service/order/dto/CreateOrderDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/interview/src/main/java/com/hepsi/interview/service/order/dto/CreateOrderDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/src/main/java/com/hepsi/interview/service/order/mapper/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/interview/src/main/java/com/hepsi/interview/service/order/mapper/OrderMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/interview/src/main/resources/db/migration/V1__.sql" beforeDir="false" afterPath="$PROJECT_DIR$/interview/src/main/resources/db/migration/V1__.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/src/test/java/com/hb/interview/InterviewApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/interview/src/test/java/com/hepsi/interview/InterviewApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hb/interview/InterviewApplication$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hb/interview/InterviewApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hb/interview/controller/CampaignController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hb/interview/controller/OrderController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hb/interview/controller/ProductController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hb/interview/facade/ProductFacade.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hb/interview/service/campaign/data/CampaignRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hb/interview/service/campaign/data/entity/CampaignEntity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hb/interview/service/campaign/dto/CampaignDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hb/interview/service/campaign/dto/CreateCampaignDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hb/interview/service/campaign/mapper/CampaignMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hb/interview/service/campaign/mapper/CampaignMapperImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hb/interview/service/campaign/operation/CampaignOperation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hb/interview/service/order/data/OrderRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hb/interview/service/order/data/entity/OrderEntity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hb/interview/service/order/dto/CreateOrderDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hb/interview/service/order/dto/OrderDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hb/interview/service/order/mapper/OrderMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hb/interview/service/order/mapper/OrderMapperImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hb/interview/service/order/operation/OrderOperation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hb/interview/service/product/data/ProductRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hb/interview/service/product/data/entity/ProductEntity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hb/interview/service/product/dto/CreateProductDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hb/interview/service/product/dto/ProductDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hb/interview/service/product/mapper/ProductMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hb/interview/service/product/mapper/ProductMapperImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hb/interview/service/product/operation/ProductOperation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hb/interview/utils/Status.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hb/interview/utils/calculate/CalculateFirstCampaign.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hb/interview/utils/calculate/CalculateSecondCampaignImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hb/interview/utils/calculate/ICalculate.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/target/classes/db/migration/V1__.sql" beforeDir="false" afterPath="$PROJECT_DIR$/interview/target/classes/db/migration/V1__.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/target/generated-sources/annotations/com/hb/interview/service/campaign/mapper/CampaignMapperImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/target/generated-sources/annotations/com/hb/interview/service/order/mapper/OrderMapperImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/target/generated-sources/annotations/com/hb/interview/service/product/mapper/ProductMapperImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hepsi/interview/InterviewApplication$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hepsi/interview/InterviewApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hepsi/interview/controller/CampaignController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hepsi/interview/controller/OrderController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hepsi/interview/controller/ProductController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hepsi/interview/facade/ProductFacade.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hepsi/interview/service/campaign/data/CampaignRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hepsi/interview/service/campaign/data/IncreaseRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hepsi/interview/service/campaign/data/entity/CampaignEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hepsi/interview/service/campaign/data/entity/IncreaseEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hepsi/interview/service/campaign/dto/CampaignDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hepsi/interview/service/campaign/dto/CreateCampaignDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hepsi/interview/service/campaign/dto/CreateIncreaseDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hepsi/interview/service/campaign/dto/IncreaseDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hepsi/interview/service/campaign/mapper/CampaignMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hepsi/interview/service/campaign/mapper/CampaignMapperImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hepsi/interview/service/campaign/mapper/IncreaseMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hepsi/interview/service/campaign/mapper/IncreaseMapperImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hepsi/interview/service/campaign/operation/CampaignOperation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hepsi/interview/service/order/data/OrderRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hepsi/interview/service/order/data/entity/OrderEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hepsi/interview/service/order/dto/CreateOrderDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hepsi/interview/service/order/dto/OrderDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hepsi/interview/service/order/mapper/OrderMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hepsi/interview/service/order/mapper/OrderMapperImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hepsi/interview/service/order/operation/OrderOperation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hepsi/interview/service/product/data/ProductRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hepsi/interview/service/product/data/entity/ProductEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hepsi/interview/service/product/dto/CreateProductDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hepsi/interview/service/product/dto/ProductDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hepsi/interview/service/product/mapper/ProductMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hepsi/interview/service/product/mapper/ProductMapperImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hepsi/interview/service/product/operation/ProductOperation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hepsi/interview/utils/Status.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hepsi/interview/utils/calculate/CalculateFirstCampaign.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hepsi/interview/utils/calculate/CalculateSecondCampaignImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/classes/com/hepsi/interview/utils/calculate/ICalculate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/classes/db/migration/V1__.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/generated-sources/annotations/com/hepsi/interview/service/campaign/mapper/CampaignMapperImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/generated-sources/annotations/com/hepsi/interview/service/campaign/mapper/IncreaseMapperImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/generated-sources/annotations/com/hepsi/interview/service/order/mapper/OrderMapperImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview/target/generated-sources/annotations/com/hepsi/interview/service/product/mapper/ProductMapperImpl.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

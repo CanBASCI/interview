@@ -18,7 +18,7 @@ public class CampaignController {
     CampaignOperation campaignOperation;
 
     @GetMapping("/getAllCampaign")
-    List<CampaignDto> getAllProducts(){
+    List<CampaignDto> getAllCampaigns(){
         return campaignOperation.getAllCampaign();
     }
 

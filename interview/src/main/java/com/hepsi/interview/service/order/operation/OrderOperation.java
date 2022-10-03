@@ -3,7 +3,6 @@ package com.hepsi.interview.service.order.operation;
 import com.hepsi.interview.service.campaign.data.CampaignRepository;
 import com.hepsi.interview.service.campaign.data.entity.CampaignEntity;
 import com.hepsi.interview.service.campaign.data.entity.IncreaseEntity;
-import com.hepsi.interview.service.campaign.dto.IncreaseDto;
 import com.hepsi.interview.service.order.data.OrderRepository;
 import com.hepsi.interview.service.order.data.entity.OrderEntity;
 import com.hepsi.interview.service.order.dto.CreateOrderDto;
@@ -12,11 +11,10 @@ import com.hepsi.interview.service.order.mapper.OrderMapper;
 import com.hepsi.interview.service.product.data.ProductRepository;
 import com.hepsi.interview.service.product.data.entity.ProductEntity;
 import com.hepsi.interview.utils.Status;
+import com.hepsi.interview.utils.error.ResourceBadRequestException;
+import com.hepsi.interview.utils.error.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -45,7 +43,7 @@ public class OrderOperation {
     }
 
     public OrderDto createOrder(CreateOrderDto createOrderDto) throws Exception {
-        ProductEntity productEntity = productRepository.findById(createOrderDto.getProductId()).orElseThrow(() -> new Exception("product not found" ));
+        ProductEntity productEntity = productRepository.findById(createOrderDto.getProductId()).orElseThrow(() -> new ResourceNotFoundException("product not found." + "id: " + createOrderDto.getProductId().toString()));
 
         int totalQuantity = 0;
         totalQuantity = productEntity.getOrders().stream().mapToInt(OrderEntity::getQuantity).sum();
@@ -82,8 +80,7 @@ public class OrderOperation {
     private void validateStock(Integer stock, Integer orderedQuantity, Integer quantity){
         if(stock < quantity || stock < (orderedQuantity + quantity))
         {
-            throw new ResponseStatusException(
-                    HttpStatus.BAD_REQUEST, "Stock can not be less than quantity");
+            throw new ResourceBadRequestException("Stock can not be less than quantity");
         }
     }
 }

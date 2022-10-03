@@ -2,6 +2,7 @@ package com.hepsi.interview.service.campaign.operation;
 
 import com.hepsi.interview.service.campaign.data.IncreaseRepository;
 import com.hepsi.interview.service.campaign.data.entity.CampaignEntity;
+import com.hepsi.interview.service.campaign.data.entity.IncreaseEntity;
 import com.hepsi.interview.service.campaign.dto.CreateIncreaseDto;
 import com.hepsi.interview.service.campaign.dto.IncreaseDto;
 import com.hepsi.interview.service.campaign.mapper.CampaignMapper;
@@ -11,12 +12,11 @@ import com.hepsi.interview.service.campaign.dto.CreateCampaignDto;
 import com.hepsi.interview.service.campaign.mapper.IncreaseMapper;
 import com.hepsi.interview.utils.Status;
 import com.hepsi.interview.utils.calculate.IFormula;
+import com.hepsi.interview.utils.error.ResourceBadRequestException;
+import com.hepsi.interview.utils.error.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -54,7 +54,7 @@ public class CampaignOperation {
     }
 
     public IncreaseDto createIncrease(CreateIncreaseDto createIncreaseDto) throws Exception {
-        CampaignEntity campaignEntity = campaignRepository.findById(createIncreaseDto.getCampaignId()).orElseThrow(() -> new Exception("campaign not found" ));
+        CampaignEntity campaignEntity = campaignRepository.findById(createIncreaseDto.getCampaignId()).orElseThrow(() -> new ResourceNotFoundException("campaign not found." + "id: " + createIncreaseDto.getCampaignId().toString()));
 
         validationStatus(campaignEntity);
 
@@ -63,7 +63,7 @@ public class CampaignOperation {
 
         int maxTime = 0;
         if(campaignEntity.getIncreases().size() > 0) {
-             maxTime = campaignEntity.getIncreases().stream().mapToInt(v -> v.getTime()).max().orElseThrow(NoSuchElementException::new);
+             maxTime = campaignEntity.getIncreases().stream().mapToInt(IncreaseEntity::getTime).max().orElseThrow(NoSuchElementException::new);
         }
 
         createIncreaseDto.setTime(maxTime + createIncreaseDto.getTime());
@@ -103,8 +103,7 @@ public class CampaignOperation {
     private void validationStatus(CampaignEntity campaignEntity){
         if(campaignEntity.getStatus() == Status.PASSIVE)
         {
-            throw new ResponseStatusException(
-                    HttpStatus.BAD_REQUEST, "Campaign is passive");
+            throw new ResourceBadRequestException("Campaign is passive");
         }
     }
 

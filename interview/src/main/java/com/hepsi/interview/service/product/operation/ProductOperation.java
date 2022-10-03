@@ -8,13 +8,14 @@ import com.hepsi.interview.service.product.data.ProductRepository;
 import com.hepsi.interview.utils.Status;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Objects;
 import java.util.Optional;
 
-@Component
+@Service
 public class ProductOperation {
 
     @Autowired

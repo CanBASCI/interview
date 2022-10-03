@@ -4,8 +4,10 @@ import com.hepsi.interview.service.product.dto.CreateProductDto;
 import com.hepsi.interview.service.product.dto.ProductDto;
 
 import com.hepsi.interview.service.product.operation.ProductOperation;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,18 +19,18 @@ public class ProductController {
     ProductOperation productOperation;
 
     @GetMapping("/getAllProducts")
-    List<ProductDto> getAllProducts(){
-        return productOperation.getAllProducts();
+    ResponseEntity<List<ProductDto>> getAllProducts(){
+        return ResponseEntity.ok(productOperation.getAllProducts());
     }
 
     @GetMapping("/getProductInfo/{productCode}")
-    ProductDto getProductInfo(@PathVariable("productCode") String productCode){
-        return productOperation.getProductInfo(productCode);
+    ResponseEntity<ProductDto> getProductInfo(@PathVariable("productCode") String productCode){
+        return ResponseEntity.ok(productOperation.getProductInfo(productCode));
     }
 
     @PostMapping("/createProduct")
-    ProductDto createProduct(@RequestBody CreateProductDto createProductDto){
-        return productOperation.createProduct(createProductDto);
+    ResponseEntity<ProductDto> createProduct(@RequestBody CreateProductDto createProductDto){
+        return ResponseEntity.ok(productOperation.createProduct(createProductDto));
     }
 
 }

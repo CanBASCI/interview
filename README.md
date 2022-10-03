@@ -33,7 +33,7 @@ spring.datasource.password=123456
 
 auto-migration (interview\interview\src\main\resources\db\migration\V1.sql)
 
-![image](https://user-images.githubusercontent.com/13646990/193632904-c1679d92-8450-43c7-afc8-5dbb498dff28.png)
+![image](https://user-images.githubusercontent.com/13646990/193680887-10187f5d-9cde-4f1a-99f4-79cddf05d282.png)
 
 --------------------------------------------------------------------------------
 

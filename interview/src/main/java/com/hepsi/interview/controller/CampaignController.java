@@ -1,6 +1,7 @@
 package com.hepsi.interview.controller;
 
 import com.hepsi.interview.service.campaign.dto.CreateIncreaseDto;
+import com.hepsi.interview.service.campaign.dto.IncreaseDto;
 import com.hepsi.interview.service.campaign.operation.CampaignOperation;
 import com.hepsi.interview.service.campaign.dto.CampaignDto;
 import com.hepsi.interview.service.campaign.dto.CreateCampaignDto;
@@ -32,8 +33,8 @@ public class CampaignController {
         return campaignOperation.createCampaign(createCampaignDto);
     }
 
-    @PostMapping("/createCampaignIncrease")
-    CampaignDto createCampaignIncrease(@RequestBody CreateIncreaseDto createIncreaseDto) throws Exception {
-        return campaignOperation.createCampaignIncrease(createIncreaseDto);
+    @PostMapping("/createIncrease")
+    IncreaseDto createIncrease(@RequestBody CreateIncreaseDto createIncreaseDto) throws Exception {
+        return campaignOperation.createIncrease(createIncreaseDto);
     }
 }

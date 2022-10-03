@@ -24,9 +24,9 @@ public class ProductEntity {
     @Column(name="PRODUCT_CODE", unique = true, nullable = false)
     public String productCode;
 
-    @Column(name="PRICE", precision = 8, scale = 2)
+    @Column(name="PRICE", precision = 8, scale = 2, nullable = false)
     public BigDecimal price;
-    @Column(name="STOCK")
+    @Column(name="STOCK", nullable = false)
     public Integer stock;
 
     @JsonIgnore

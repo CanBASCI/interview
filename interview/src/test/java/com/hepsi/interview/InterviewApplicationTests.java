@@ -8,6 +8,7 @@ class InterviewApplicationTests {
 
 	@Test
 	void contextLoads() {
+		String a = "";
 	}
 
 }

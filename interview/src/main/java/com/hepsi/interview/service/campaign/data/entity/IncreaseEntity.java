@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.sql.Time;
+import java.math.BigDecimal;
 import java.util.UUID;
 
 @Entity
@@ -16,8 +16,11 @@ public class IncreaseEntity {
     @GeneratedValue(strategy= GenerationType.AUTO)
     public UUID id;
 
-    @Column(name="TIME", columnDefinition = "TIME")
-    public Time time;
+    @Column(name="TIME")
+    public Integer time;
+
+    @Column(name="PRICE", precision = 8, scale = 2, nullable = false)
+    public BigDecimal price;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "campaign_id", referencedColumnName = "id")

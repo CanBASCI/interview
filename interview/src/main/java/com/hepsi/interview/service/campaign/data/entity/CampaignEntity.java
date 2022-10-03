@@ -1,6 +1,7 @@
 package com.hepsi.interview.service.campaign.data.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.hepsi.interview.utils.CalculateFormula;
 import com.hepsi.interview.utils.Status;
 import com.hepsi.interview.service.product.data.entity.ProductEntity;
 import lombok.Getter;
@@ -27,18 +28,22 @@ public class CampaignEntity {
     @JoinColumn(name = "product_id", referencedColumnName = "id")
     public ProductEntity product;
 
-    @Column(name="DURATION", columnDefinition = "integer default 1")
+    @Column(name="DURATION", columnDefinition = "integer default 0", nullable = false)
     public Integer duration;
 
-    @Column(name="PRICE_MAN_LIMIT")
+    @Column(name="PRICE_MAN_LIMIT", nullable = false)
     public Integer priceManLimit;
 
     @Column(name="TARGET_SALES_COUNT")
     public Integer targetSalesCount;
 
     //todo bu nedir
-    @Column(name="TOTAL_SALES")
+    @Column(name="TOTAL_SALES", columnDefinition = "integer default 0", nullable = false)
     public Integer totalSales;
+
+    @Column(name="FORMULA", length = 32)
+    @Enumerated(EnumType.STRING)
+    public CalculateFormula formula;
 
     @Column(name="STATUS", length = 32)
     @Enumerated(EnumType.STRING)

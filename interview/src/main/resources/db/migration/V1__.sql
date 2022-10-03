@@ -2,24 +2,28 @@ CREATE TABLE hb_campaign (
   id UUID NOT NULL,
    name VARCHAR(255) NOT NULL,
    product_id UUID,
-   duration INTEGER DEFAULT 1,
-   price_man_limit INTEGER,
+   duration INTEGER DEFAULT 0 NOT NULL,
+   price_man_limit INTEGER NOT NULL,
    target_sales_count INTEGER,
-   total_sales INTEGER,
+   total_sales INTEGER DEFAULT 0 NOT NULL,
+   formula VARCHAR(32),
    status VARCHAR(32),
    CONSTRAINT pk_hb_campaign PRIMARY KEY (id)
 );
 
 CREATE TABLE hb_increase (
   id UUID NOT NULL,
-   time TIME WITHOUT TIME ZONE,
+   time INTEGER,
+   price DECIMAL(8, 2) NOT NULL,
    campaign_id UUID,
    CONSTRAINT pk_hb_increase PRIMARY KEY (id)
 );
 
 CREATE TABLE hb_order (
   id UUID NOT NULL,
-   quantity INTEGER,
+   quantity INTEGER NOT NULL,
+   price DECIMAL(8, 2) NOT NULL,
+   campaign_id UUID,
    product_id UUID,
    CONSTRAINT pk_hb_order PRIMARY KEY (id)
 );
@@ -27,8 +31,8 @@ CREATE TABLE hb_order (
 CREATE TABLE hb_product (
   id UUID NOT NULL,
    product_code VARCHAR(255) NOT NULL,
-   price DECIMAL(8, 2),
-   stock INTEGER,
+   price DECIMAL(8, 2) NOT NULL,
+   stock INTEGER NOT NULL,
    CONSTRAINT pk_hb_product PRIMARY KEY (id)
 );
 

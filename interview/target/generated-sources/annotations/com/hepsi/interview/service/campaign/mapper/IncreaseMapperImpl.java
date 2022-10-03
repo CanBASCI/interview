@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-10-02T14:55:44+0300",
+    date = "2022-10-03T17:31:44+0300",
     comments = "version: 1.5.2.Final, compiler: javac, environment: Java 18.0.2 (Oracle Corporation)"
 )
 @Component
@@ -27,6 +27,7 @@ public class IncreaseMapperImpl implements IncreaseMapper {
 
         increaseDto.id = increaseEntity.id;
         increaseDto.time = increaseEntity.time;
+        increaseDto.price = increaseEntity.price;
 
         return increaseDto;
     }
@@ -55,6 +56,7 @@ public class IncreaseMapperImpl implements IncreaseMapper {
 
         increaseEntity.campaign = createIncreaseDtoToCampaignEntity( createIncreaseDto );
         increaseEntity.time = createIncreaseDto.time;
+        increaseEntity.price = createIncreaseDto.price;
 
         return increaseEntity;
     }

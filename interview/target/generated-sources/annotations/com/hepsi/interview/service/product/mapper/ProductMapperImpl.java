@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-10-02T14:55:44+0300",
+    date = "2022-10-03T17:31:44+0300",
     comments = "version: 1.5.2.Final, compiler: javac, environment: Java 18.0.2 (Oracle Corporation)"
 )
 @Component
@@ -50,6 +50,8 @@ public class ProductMapperImpl implements ProductMapper {
         OrderDto orderDto = new OrderDto();
 
         orderDto.id = orderEntity.id;
+        orderDto.price = orderEntity.price;
+        orderDto.campaignId = orderEntity.campaignId;
         orderDto.quantity = orderEntity.quantity;
 
         return orderDto;
@@ -69,6 +71,7 @@ public class ProductMapperImpl implements ProductMapper {
         campaignDto.priceManLimit = campaignEntity.priceManLimit;
         campaignDto.targetSalesCount = campaignEntity.targetSalesCount;
         campaignDto.totalSales = campaignEntity.totalSales;
+        campaignDto.formula = campaignEntity.formula;
         campaignDto.status = campaignEntity.status;
         campaignDto.increases = increaseEntitySetToIncreaseDtoList( campaignEntity.increases );
 
@@ -139,6 +142,7 @@ public class ProductMapperImpl implements ProductMapper {
 
         increaseDto.id = increaseEntity.id;
         increaseDto.time = increaseEntity.time;
+        increaseDto.price = increaseEntity.price;
 
         return increaseDto;
     }

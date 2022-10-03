@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-10-02T14:55:44+0300",
+    date = "2022-10-03T17:31:44+0300",
     comments = "version: 1.5.2.Final, compiler: javac, environment: Java 18.0.2 (Oracle Corporation)"
 )
 @Component
@@ -37,6 +37,7 @@ public class CampaignMapperImpl implements CampaignMapper {
         campaignDto.priceManLimit = campaignEntity.priceManLimit;
         campaignDto.targetSalesCount = campaignEntity.targetSalesCount;
         campaignDto.totalSales = campaignEntity.totalSales;
+        campaignDto.formula = campaignEntity.formula;
         campaignDto.status = campaignEntity.status;
         campaignDto.increases = increaseEntitySetToIncreaseDtoList( campaignEntity.increases );
 
@@ -70,12 +71,19 @@ public class CampaignMapperImpl implements CampaignMapper {
             campaignEntity.status = createCampaignDto.status;
         }
         else {
-            campaignEntity.status = Status.PASSIVE;
+            campaignEntity.status = Status.ACTIVE;
+        }
+        if ( createCampaignDto.totalSales != null ) {
+            campaignEntity.totalSales = createCampaignDto.totalSales;
+        }
+        else {
+            campaignEntity.totalSales = 0;
         }
         campaignEntity.name = createCampaignDto.name;
         campaignEntity.duration = createCampaignDto.duration;
         campaignEntity.priceManLimit = createCampaignDto.priceManLimit;
         campaignEntity.targetSalesCount = createCampaignDto.targetSalesCount;
+        campaignEntity.formula = createCampaignDto.formula;
 
         return campaignEntity;
     }
@@ -104,6 +112,7 @@ public class CampaignMapperImpl implements CampaignMapper {
 
         increaseDto.id = increaseEntity.id;
         increaseDto.time = increaseEntity.time;
+        increaseDto.price = increaseEntity.price;
 
         return increaseDto;
     }

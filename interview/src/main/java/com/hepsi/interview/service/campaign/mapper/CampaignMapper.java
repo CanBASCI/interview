@@ -11,13 +11,13 @@ import java.util.List;
 @Mapper(componentModel="spring")
 public interface CampaignMapper {
 
-    //@Mapping(target = "productCode", source = "product.productCode")
     @Mapping(target = "product.orders", ignore = true)
     @Mapping(target = "product.campaigns", ignore = true)
     CampaignDto toDto(CampaignEntity campaignEntity);
     List<CampaignDto> toDtos(List<CampaignEntity> campaignEntities);
 
     @Mapping(target = "product.id", source = "productId")
-    @Mapping(target = "status", defaultValue = "PASSIVE")
+    @Mapping(target = "status", defaultValue = "ACTIVE")
+    @Mapping(target = "totalSales", defaultValue = "0")
     CampaignEntity toEntity(CreateCampaignDto createCampaignDto);
 }

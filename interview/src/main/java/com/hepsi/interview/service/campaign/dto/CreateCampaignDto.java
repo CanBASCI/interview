@@ -10,23 +10,83 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
 public class CreateCampaignDto {
     @NonNull
-    public String name;
-    public UUID productId;
+    private String name;
+    private UUID productId;
     @NonNull
-    public Integer duration;
+    private Integer duration;
     @NonNull
-    public Integer priceManLimit;
+    private Integer priceManLimit;
     @NonNull
-    public Integer targetSalesCount;
+    private Integer targetSalesCount;
     @NonNull
-    public CalculateFormula formula;
+    private CalculateFormula formula;
+    @JsonIgnore
+    private Integer totalSales;
+    @JsonIgnore
+    private Status status;
+    public String getName() {
+        return name;
+    }
 
-    @JsonIgnore
-    public Integer totalSales;
-    @JsonIgnore
-    public Status status;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public UUID getProductId() {
+        return productId;
+    }
+
+    public void setProductId(UUID productId) {
+        this.productId = productId;
+    }
+
+    public Integer getDuration() {
+        return duration;
+    }
+
+    public void setDuration(Integer duration) {
+        this.duration = duration;
+    }
+
+    public Integer getPriceManLimit() {
+        return priceManLimit;
+    }
+
+    public void setPriceManLimit(Integer priceManLimit) {
+        this.priceManLimit = priceManLimit;
+    }
+
+    public Integer getTargetSalesCount() {
+        return targetSalesCount;
+    }
+
+    public void setTargetSalesCount(Integer targetSalesCount) {
+        this.targetSalesCount = targetSalesCount;
+    }
+
+    public CalculateFormula getFormula() {
+        return formula;
+    }
+
+    public void setFormula(CalculateFormula formula) {
+        this.formula = formula;
+    }
+
+    public Integer getTotalSales() {
+        return totalSales;
+    }
+
+    public void setTotalSales(Integer totalSales) {
+        this.totalSales = totalSales;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
 }

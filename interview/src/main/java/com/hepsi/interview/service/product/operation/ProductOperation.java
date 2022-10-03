@@ -32,11 +32,11 @@ public class ProductOperation {
 
         ProductDto productDto = productMapper.toDto(productRepository.findByProductCode(productCode));
 
-        productDto.campaigns.forEach(campaignDto -> {
-            if(campaignDto.status == Status.ACTIVE) {
-                Integer maxTime = campaignDto.increases.stream().mapToInt(v -> v.time).max().orElseThrow(NoSuchElementException::new);
-                Optional<IncreaseDto> increaseDtos = campaignDto.increases.stream().filter(f -> Objects.equals(f.time, maxTime)).findFirst();
-                increaseDtos.ifPresent(increaseDto -> productDto.price = increaseDto.price);
+        productDto.getCampaigns().forEach(campaignDto -> {
+            if(campaignDto.getStatus() == Status.ACTIVE) {
+                Integer maxTime = campaignDto.getIncreases().stream().mapToInt(v -> v.getTime()).max().orElseThrow(NoSuchElementException::new);
+                Optional<IncreaseDto> increaseDtos = campaignDto.getIncreases().stream().filter(f -> Objects.equals(f.getTime(), maxTime)).findFirst();
+                increaseDtos.ifPresent(increaseDto -> productDto.setPrice(increaseDto.getPrice()));
             }
         });
 

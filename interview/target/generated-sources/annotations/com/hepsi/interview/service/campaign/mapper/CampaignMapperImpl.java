@@ -11,12 +11,12 @@ import com.hepsi.interview.utils.Status;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-import javax.annotation.Generated;
+import javax.annotation.processing.Generated;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-10-03T17:31:44+0300",
+    date = "2022-10-03T18:59:41+0300",
     comments = "version: 1.5.2.Final, compiler: javac, environment: Java 18.0.2 (Oracle Corporation)"
 )
 @Component
@@ -30,16 +30,16 @@ public class CampaignMapperImpl implements CampaignMapper {
 
         CampaignDto campaignDto = new CampaignDto();
 
-        campaignDto.id = campaignEntity.id;
-        campaignDto.name = campaignEntity.name;
-        campaignDto.product = productEntityToProductDto( campaignEntity.product );
-        campaignDto.duration = campaignEntity.duration;
-        campaignDto.priceManLimit = campaignEntity.priceManLimit;
-        campaignDto.targetSalesCount = campaignEntity.targetSalesCount;
-        campaignDto.totalSales = campaignEntity.totalSales;
-        campaignDto.formula = campaignEntity.formula;
-        campaignDto.status = campaignEntity.status;
-        campaignDto.increases = increaseEntitySetToIncreaseDtoList( campaignEntity.increases );
+        campaignDto.setId( campaignEntity.getId() );
+        campaignDto.setName( campaignEntity.getName() );
+        campaignDto.setProduct( productEntityToProductDto( campaignEntity.getProduct() ) );
+        campaignDto.setDuration( campaignEntity.getDuration() );
+        campaignDto.setPriceManLimit( campaignEntity.getPriceManLimit() );
+        campaignDto.setTargetSalesCount( campaignEntity.getTargetSalesCount() );
+        campaignDto.setTotalSales( campaignEntity.getTotalSales() );
+        campaignDto.setFormula( campaignEntity.getFormula() );
+        campaignDto.setStatus( campaignEntity.getStatus() );
+        campaignDto.setIncreases( increaseEntitySetToIncreaseDtoList( campaignEntity.getIncreases() ) );
 
         return campaignDto;
     }
@@ -66,24 +66,24 @@ public class CampaignMapperImpl implements CampaignMapper {
 
         CampaignEntity campaignEntity = new CampaignEntity();
 
-        campaignEntity.product = createCampaignDtoToProductEntity( createCampaignDto );
-        if ( createCampaignDto.status != null ) {
-            campaignEntity.status = createCampaignDto.status;
+        campaignEntity.setProduct( createCampaignDtoToProductEntity( createCampaignDto ) );
+        if ( createCampaignDto.getStatus() != null ) {
+            campaignEntity.setStatus( createCampaignDto.getStatus() );
         }
         else {
-            campaignEntity.status = Status.ACTIVE;
+            campaignEntity.setStatus( Status.ACTIVE );
         }
-        if ( createCampaignDto.totalSales != null ) {
-            campaignEntity.totalSales = createCampaignDto.totalSales;
+        if ( createCampaignDto.getTotalSales() != null ) {
+            campaignEntity.setTotalSales( createCampaignDto.getTotalSales() );
         }
         else {
-            campaignEntity.totalSales = 0;
+            campaignEntity.setTotalSales( 0 );
         }
-        campaignEntity.name = createCampaignDto.name;
-        campaignEntity.duration = createCampaignDto.duration;
-        campaignEntity.priceManLimit = createCampaignDto.priceManLimit;
-        campaignEntity.targetSalesCount = createCampaignDto.targetSalesCount;
-        campaignEntity.formula = createCampaignDto.formula;
+        campaignEntity.setName( createCampaignDto.getName() );
+        campaignEntity.setDuration( createCampaignDto.getDuration() );
+        campaignEntity.setPriceManLimit( createCampaignDto.getPriceManLimit() );
+        campaignEntity.setTargetSalesCount( createCampaignDto.getTargetSalesCount() );
+        campaignEntity.setFormula( createCampaignDto.getFormula() );
 
         return campaignEntity;
     }
@@ -95,10 +95,10 @@ public class CampaignMapperImpl implements CampaignMapper {
 
         ProductDto productDto = new ProductDto();
 
-        productDto.id = productEntity.id;
-        productDto.productCode = productEntity.productCode;
-        productDto.price = productEntity.price;
-        productDto.stock = productEntity.stock;
+        productDto.setId( productEntity.getId() );
+        productDto.setProductCode( productEntity.getProductCode() );
+        productDto.setPrice( productEntity.getPrice() );
+        productDto.setStock( productEntity.getStock() );
 
         return productDto;
     }
@@ -110,9 +110,9 @@ public class CampaignMapperImpl implements CampaignMapper {
 
         IncreaseDto increaseDto = new IncreaseDto();
 
-        increaseDto.id = increaseEntity.id;
-        increaseDto.time = increaseEntity.time;
-        increaseDto.price = increaseEntity.price;
+        increaseDto.setId( increaseEntity.getId() );
+        increaseDto.setTime( increaseEntity.getTime() );
+        increaseDto.setPrice( increaseEntity.getPrice() );
 
         return increaseDto;
     }
@@ -137,7 +137,7 @@ public class CampaignMapperImpl implements CampaignMapper {
 
         ProductEntity productEntity = new ProductEntity();
 
-        productEntity.id = createCampaignDto.productId;
+        productEntity.setId( createCampaignDto.getProductId() );
 
         return productEntity;
     }

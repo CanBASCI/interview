@@ -15,11 +15,11 @@ public class FormulaBImpl implements IFormula{
     @Override
     public BigDecimal getPrice(CampaignEntity campaignEntity) {
         long timeCount = 0L;
-        for (IncreaseEntity increaseEntity : campaignEntity.increases) {
-            timeCount = increaseEntity.time + timeCount;
+        for (IncreaseEntity increaseEntity : campaignEntity.getIncreases()) {
+            timeCount = increaseEntity.getTime() + timeCount;
         }
-        BigDecimal totalIncrease = campaignEntity.product.price.multiply(new BigDecimal(campaignEntity.priceManLimit)).divide(new BigDecimal(100));
+        BigDecimal totalIncrease = campaignEntity.getProduct().getPrice().multiply(new BigDecimal(campaignEntity.getPriceManLimit())).divide(new BigDecimal(100));
 
-        return campaignEntity.product.price.subtract(totalIncrease);
+        return campaignEntity.getProduct().getPrice().subtract(totalIncrease);
     }
 }

@@ -9,16 +9,35 @@ import java.math.BigDecimal;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
 public class CreateProductDto {
-
     @NonNull
-    public String productCode;
-
+    private String productCode;
     @NotNull
-    public BigDecimal price;
-
+    private BigDecimal price;
     @NotNull
-    public Integer stock;
+    private Integer stock;
+
+    public String getProductCode() {
+        return productCode;
+    }
+
+    public void setProductCode(String productCode) {
+        this.productCode = productCode;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public Integer getStock() {
+        return stock;
+    }
+
+    public void setStock(Integer stock) {
+        this.stock = stock;
+    }
 }

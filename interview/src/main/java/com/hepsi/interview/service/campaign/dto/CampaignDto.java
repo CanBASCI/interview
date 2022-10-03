@@ -11,23 +11,97 @@ import java.util.UUID;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class CampaignDto {
-    public UUID id;
-    public String name;
-    public ProductDto product;
-    public Integer duration;
-    public Integer priceManLimit;
-    public Integer targetSalesCount;
-    //todo bu nedir
-    public Integer totalSales;
+    private UUID id;
+    private String name;
+    private ProductDto product;
+    private Integer duration;
+    private Integer priceManLimit;
+    private Integer targetSalesCount;
+    private Integer totalSales;
+    private CalculateFormula formula;
+    private Status status;
+    private List<IncreaseDto> increases;
 
-    public CalculateFormula formula;
+    public UUID getId() {
+        return id;
+    }
 
-    public Status status;
+    public void setId(UUID id) {
+        this.id = id;
+    }
 
-    public List<IncreaseDto> increases;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public ProductDto getProduct() {
+        return product;
+    }
+
+    public void setProduct(ProductDto product) {
+        this.product = product;
+    }
+
+    public Integer getDuration() {
+        return duration;
+    }
+
+    public void setDuration(Integer duration) {
+        this.duration = duration;
+    }
+
+    public Integer getPriceManLimit() {
+        return priceManLimit;
+    }
+
+    public void setPriceManLimit(Integer priceManLimit) {
+        this.priceManLimit = priceManLimit;
+    }
+
+    public Integer getTargetSalesCount() {
+        return targetSalesCount;
+    }
+
+    public void setTargetSalesCount(Integer targetSalesCount) {
+        this.targetSalesCount = targetSalesCount;
+    }
+
+    public Integer getTotalSales() {
+        return totalSales;
+    }
+
+    public void setTotalSales(Integer totalSales) {
+        this.totalSales = totalSales;
+    }
+
+    public CalculateFormula getFormula() {
+        return formula;
+    }
+
+    public void setFormula(CalculateFormula formula) {
+        this.formula = formula;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public List<IncreaseDto> getIncreases() {
+        return increases;
+    }
+
+    public void setIncreases(List<IncreaseDto> increases) {
+        this.increases = increases;
+    }
 }

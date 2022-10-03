@@ -6,12 +6,12 @@ import com.hepsi.interview.service.campaign.dto.CreateIncreaseDto;
 import com.hepsi.interview.service.campaign.dto.IncreaseDto;
 import java.util.ArrayList;
 import java.util.List;
-import javax.annotation.Generated;
+import javax.annotation.processing.Generated;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-10-03T17:31:44+0300",
+    date = "2022-10-03T18:59:41+0300",
     comments = "version: 1.5.2.Final, compiler: javac, environment: Java 18.0.2 (Oracle Corporation)"
 )
 @Component
@@ -25,9 +25,9 @@ public class IncreaseMapperImpl implements IncreaseMapper {
 
         IncreaseDto increaseDto = new IncreaseDto();
 
-        increaseDto.id = increaseEntity.id;
-        increaseDto.time = increaseEntity.time;
-        increaseDto.price = increaseEntity.price;
+        increaseDto.setId( increaseEntity.getId() );
+        increaseDto.setTime( increaseEntity.getTime() );
+        increaseDto.setPrice( increaseEntity.getPrice() );
 
         return increaseDto;
     }
@@ -54,9 +54,9 @@ public class IncreaseMapperImpl implements IncreaseMapper {
 
         IncreaseEntity increaseEntity = new IncreaseEntity();
 
-        increaseEntity.campaign = createIncreaseDtoToCampaignEntity( createIncreaseDto );
-        increaseEntity.time = createIncreaseDto.time;
-        increaseEntity.price = createIncreaseDto.price;
+        increaseEntity.setCampaign( createIncreaseDtoToCampaignEntity( createIncreaseDto ) );
+        increaseEntity.setTime( createIncreaseDto.getTime() );
+        increaseEntity.setPrice( createIncreaseDto.getPrice() );
 
         return increaseEntity;
     }
@@ -68,7 +68,7 @@ public class IncreaseMapperImpl implements IncreaseMapper {
 
         CampaignEntity campaignEntity = new CampaignEntity();
 
-        campaignEntity.id = createIncreaseDto.campaignId;
+        campaignEntity.setId( createIncreaseDto.getCampaignId() );
 
         return campaignEntity;
     }

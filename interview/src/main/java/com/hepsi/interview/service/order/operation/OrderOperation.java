@@ -44,32 +44,35 @@ public class OrderOperation {
     }
 
     public OrderDto createOrder(CreateOrderDto createOrderDto) throws Exception {
-        ProductEntity productEntity = productRepository.findById(createOrderDto.productId).orElseThrow(() -> new Exception("product not found" ));
+        ProductEntity productEntity = productRepository.findById(createOrderDto.getProductId()).orElseThrow(() -> new Exception("product not found" ));
 
         int totalQuantity = 0;
-        totalQuantity = productEntity.orders.stream().mapToInt(orderEntity -> orderEntity.quantity).sum();
-        validateStock(productEntity.stock, totalQuantity, createOrderDto.quantity);
+        totalQuantity = productEntity.getOrders().stream().mapToInt(OrderEntity::getQuantity).sum();
+        validateStock(productEntity.getStock(), totalQuantity, createOrderDto.getQuantity());
 
-        Optional<CampaignEntity> campaignOptional = productEntity.campaigns.stream().filter(f -> Objects.equals(f.status, Status.ACTIVE)).findFirst();
+        Optional<CampaignEntity> campaignOptional = productEntity.getCampaigns().stream().filter(f -> Objects.equals(f.getStatus(), Status.ACTIVE)).findFirst();
 
-        BigDecimal orderPrice = new BigDecimal(String.valueOf(productEntity.price));
+        BigDecimal orderPrice = new BigDecimal(String.valueOf(productEntity.getPrice()));
 
         if(campaignOptional.isPresent())
         {
             CampaignEntity campaignEntity = campaignOptional.get();
-            Integer maxTime = campaignEntity.increases.stream().mapToInt(v -> v.time).max().orElseThrow(NoSuchElementException::new);
-            Optional<IncreaseEntity> increaseOptional = campaignEntity.increases.stream().filter(f -> Objects.equals(f.time, maxTime)).findFirst();
+            Integer maxTime = campaignEntity.getIncreases().stream().mapToInt(IncreaseEntity::getTime).max().orElseThrow(NoSuchElementException::new);
+            Optional<IncreaseEntity> increaseOptional = campaignEntity.getIncreases().stream().filter(f -> Objects.equals(f.getTime(), maxTime)).findFirst();
 
             if (increaseOptional.isPresent())
             {
                 IncreaseEntity increaseEntity = increaseOptional.get();
-                orderPrice = increaseEntity.price;
-                createOrderDto.campaignId = increaseEntity.id;
+                if(createOrderDto.getQuantity() <= (campaignEntity.getTargetSalesCount() - campaignEntity.getTotalSales())) {
+                    orderPrice = increaseEntity.getPrice();
+                    campaignEntity.setTotalSales(campaignEntity.getTotalSales() + createOrderDto.getQuantity());
+                    campaignRepository.save(campaignEntity);
+                    createOrderDto.setCampaignId(increaseEntity.getId());
+                }
             }
-            campaignEntity.totalSales = campaignEntity.totalSales + createOrderDto.quantity;
-            campaignRepository.save(campaignEntity);
         }
-        createOrderDto.price = orderPrice;
+
+        createOrderDto.setPrice(orderPrice);
 
         OrderEntity orderEntity = orderRepository.save(orderMapper.toEntity(createOrderDto));
         return orderMapper.toDto(orderEntity);

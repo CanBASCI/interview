@@ -12,12 +12,12 @@ import com.hepsi.interview.service.product.dto.ProductDto;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-import javax.annotation.Generated;
+import javax.annotation.processing.Generated;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-10-03T17:31:44+0300",
+    date = "2022-10-03T18:59:41+0300",
     comments = "version: 1.5.2.Final, compiler: javac, environment: Java 18.0.2 (Oracle Corporation)"
 )
 @Component
@@ -31,12 +31,12 @@ public class ProductMapperImpl implements ProductMapper {
 
         ProductDto productDto = new ProductDto();
 
-        productDto.id = productEntity.id;
-        productDto.productCode = productEntity.productCode;
-        productDto.price = productEntity.price;
-        productDto.stock = productEntity.stock;
-        productDto.orders = orderEntitySetToOrderDtoList( productEntity.orders );
-        productDto.campaigns = campaignEntitySetToCampaignDtoList( productEntity.campaigns );
+        productDto.setId( productEntity.getId() );
+        productDto.setProductCode( productEntity.getProductCode() );
+        productDto.setPrice( productEntity.getPrice() );
+        productDto.setStock( productEntity.getStock() );
+        productDto.setOrders( orderEntitySetToOrderDtoList( productEntity.getOrders() ) );
+        productDto.setCampaigns( campaignEntitySetToCampaignDtoList( productEntity.getCampaigns() ) );
 
         return productDto;
     }
@@ -49,10 +49,10 @@ public class ProductMapperImpl implements ProductMapper {
 
         OrderDto orderDto = new OrderDto();
 
-        orderDto.id = orderEntity.id;
-        orderDto.price = orderEntity.price;
-        orderDto.campaignId = orderEntity.campaignId;
-        orderDto.quantity = orderEntity.quantity;
+        orderDto.setId( orderEntity.getId() );
+        orderDto.setPrice( orderEntity.getPrice() );
+        orderDto.setCampaignId( orderEntity.getCampaignId() );
+        orderDto.setQuantity( orderEntity.getQuantity() );
 
         return orderDto;
     }
@@ -65,15 +65,15 @@ public class ProductMapperImpl implements ProductMapper {
 
         CampaignDto campaignDto = new CampaignDto();
 
-        campaignDto.id = campaignEntity.id;
-        campaignDto.name = campaignEntity.name;
-        campaignDto.duration = campaignEntity.duration;
-        campaignDto.priceManLimit = campaignEntity.priceManLimit;
-        campaignDto.targetSalesCount = campaignEntity.targetSalesCount;
-        campaignDto.totalSales = campaignEntity.totalSales;
-        campaignDto.formula = campaignEntity.formula;
-        campaignDto.status = campaignEntity.status;
-        campaignDto.increases = increaseEntitySetToIncreaseDtoList( campaignEntity.increases );
+        campaignDto.setId( campaignEntity.getId() );
+        campaignDto.setName( campaignEntity.getName() );
+        campaignDto.setDuration( campaignEntity.getDuration() );
+        campaignDto.setPriceManLimit( campaignEntity.getPriceManLimit() );
+        campaignDto.setTargetSalesCount( campaignEntity.getTargetSalesCount() );
+        campaignDto.setTotalSales( campaignEntity.getTotalSales() );
+        campaignDto.setFormula( campaignEntity.getFormula() );
+        campaignDto.setStatus( campaignEntity.getStatus() );
+        campaignDto.setIncreases( increaseEntitySetToIncreaseDtoList( campaignEntity.getIncreases() ) );
 
         return campaignDto;
     }
@@ -100,9 +100,9 @@ public class ProductMapperImpl implements ProductMapper {
 
         ProductEntity productEntity = new ProductEntity();
 
-        productEntity.productCode = createProductDto.productCode;
-        productEntity.price = createProductDto.price;
-        productEntity.stock = createProductDto.stock;
+        productEntity.setProductCode( createProductDto.getProductCode() );
+        productEntity.setPrice( createProductDto.getPrice() );
+        productEntity.setStock( createProductDto.getStock() );
 
         return productEntity;
     }
@@ -140,9 +140,9 @@ public class ProductMapperImpl implements ProductMapper {
 
         IncreaseDto increaseDto = new IncreaseDto();
 
-        increaseDto.id = increaseEntity.id;
-        increaseDto.time = increaseEntity.time;
-        increaseDto.price = increaseEntity.price;
+        increaseDto.setId( increaseEntity.getId() );
+        increaseDto.setTime( increaseEntity.getTime() );
+        increaseDto.setPrice( increaseEntity.getPrice() );
 
         return increaseDto;
     }

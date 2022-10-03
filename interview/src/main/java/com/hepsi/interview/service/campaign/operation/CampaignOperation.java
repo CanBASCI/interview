@@ -53,7 +53,7 @@ public class CampaignOperation {
     }
 
     public IncreaseDto createIncrease(CreateIncreaseDto createIncreaseDto) throws Exception {
-        CampaignEntity campaignEntity = campaignRepository.findById(createIncreaseDto.campaignId).orElseThrow(() -> new Exception("campaign not found" ));
+        CampaignEntity campaignEntity = campaignRepository.findById(createIncreaseDto.getCampaignId()).orElseThrow(() -> new Exception("campaign not found" ));
 
         validationStatus(campaignEntity);
 
@@ -61,37 +61,37 @@ public class CampaignOperation {
         BigDecimal maxManLimit = maxManLimit(campaignEntity);
 
         int maxTime = 0;
-        if(campaignEntity.increases.size() > 0) {
-             maxTime = campaignEntity.increases.stream().mapToInt(v -> v.time).max().orElseThrow(NoSuchElementException::new);
+        if(campaignEntity.getIncreases().size() > 0) {
+             maxTime = campaignEntity.getIncreases().stream().mapToInt(v -> v.getTime()).max().orElseThrow(NoSuchElementException::new);
         }
 
-        createIncreaseDto.time = maxTime + createIncreaseDto.time;
+        createIncreaseDto.setTime(maxTime + createIncreaseDto.getTime());
 
-        if(createIncreaseDto.time > campaignEntity.duration){
-            createIncreaseDto.price = campaignEntity.product.price;
-            campaignEntity.status = Status.PASSIVE;
+        if(createIncreaseDto.getTime() > campaignEntity.getDuration()){
+            createIncreaseDto.setPrice(campaignEntity.getProduct().getPrice());
+            campaignEntity.setStatus(Status.PASSIVE);
         }
         else {
             BigDecimal currentPrice;
-            switch (campaignEntity.formula) {
+            switch (campaignEntity.getFormula()) {
                 case A:
                     currentPrice = AFormula.getPrice(campaignEntity);
-                    createIncreaseDto.price = currentPrice;
+                    createIncreaseDto.setPrice(currentPrice);
                     break;
                 case B:
                     currentPrice = BFormula.getPrice(campaignEntity);
-                    createIncreaseDto.price = currentPrice;
+                    createIncreaseDto.setPrice(currentPrice);
                     break;
                 default:
                     break;
             }
 
-            campaignEntity.status = Status.ACTIVE;
+            campaignEntity.setStatus(Status.ACTIVE);
         }
 
-        if((createIncreaseDto.price.compareTo(minManLimit) < 0) || (createIncreaseDto.price.compareTo(maxManLimit) > 0)){
-            createIncreaseDto.price = campaignEntity.product.price;
-            campaignEntity.status = Status.PASSIVE;
+        if((createIncreaseDto.getPrice().compareTo(minManLimit) < 0) || (createIncreaseDto.getPrice().compareTo(maxManLimit) > 0)){
+            createIncreaseDto.setPrice(campaignEntity.getProduct().getPrice());
+            campaignEntity.setStatus(Status.PASSIVE);
         }
 
         campaignRepository.save(campaignEntity);
@@ -100,7 +100,7 @@ public class CampaignOperation {
     }
 
     private void validationStatus(CampaignEntity campaignEntity){
-        if(campaignEntity.status == Status.PASSIVE)
+        if(campaignEntity.getStatus() == Status.PASSIVE)
         {
             throw new ResponseStatusException(
                     HttpStatus.BAD_REQUEST, "Campaign is passive");
@@ -108,10 +108,10 @@ public class CampaignOperation {
     }
 
     private BigDecimal minManLimit(CampaignEntity campaignEntity){
-        return campaignEntity.product.price.subtract((campaignEntity.product.price.multiply(BigDecimal.valueOf(campaignEntity.priceManLimit))).divide(new BigDecimal(100)));
+        return campaignEntity.getProduct().getPrice().subtract((campaignEntity.getProduct().getPrice().multiply(BigDecimal.valueOf(campaignEntity.getPriceManLimit()))).divide(new BigDecimal(100)));
     }
 
     private BigDecimal maxManLimit(CampaignEntity campaignEntity){
-        return campaignEntity.product.price.add((campaignEntity.product.price.multiply(BigDecimal.valueOf(campaignEntity.priceManLimit))).divide(new BigDecimal(100)));
+        return campaignEntity.getProduct().getPrice().add((campaignEntity.getProduct().getPrice().multiply(BigDecimal.valueOf(campaignEntity.getPriceManLimit()))).divide(new BigDecimal(100)));
     }
 }

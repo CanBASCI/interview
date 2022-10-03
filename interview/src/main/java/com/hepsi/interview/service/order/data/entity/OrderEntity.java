@@ -1,8 +1,6 @@
 package com.hepsi.interview.service.order.data.entity;
 
 import com.hepsi.interview.service.product.data.entity.ProductEntity;
-import lombok.Getter;
-import lombok.Setter;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -10,22 +8,61 @@ import java.util.UUID;
 
 @Entity
 @Table(name="hb_order")
-@Getter
-@Setter
+
 public class OrderEntity {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    public UUID id;
+    private UUID id;
     @Column(name="QUANTITY", nullable = false)
-    public Integer quantity;
+    private Integer quantity;
 
     @Column(name="PRICE", precision = 8, scale = 2, nullable = false)
-    public BigDecimal price;
+    private BigDecimal price;
 
     @Column(name="CAMPAIGN_ID")
-    public UUID campaignId;
+    private UUID campaignId;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "product_id", referencedColumnName = "id")
-    public ProductEntity product;
+    private ProductEntity product;
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public UUID getCampaignId() {
+        return campaignId;
+    }
+
+    public void setCampaignId(UUID campaignId) {
+        this.campaignId = campaignId;
+    }
+
+    public ProductEntity getProduct() {
+        return product;
+    }
+
+    public void setProduct(ProductEntity product) {
+        this.product = product;
+    }
 }

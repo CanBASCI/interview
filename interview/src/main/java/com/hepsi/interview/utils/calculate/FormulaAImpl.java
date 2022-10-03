@@ -15,7 +15,7 @@ public class FormulaAImpl implements IFormula{
     @NotNull
     @Override
     public BigDecimal getPrice(CampaignEntity campaignEntity) {
-        BigDecimal totalIncrease = new BigDecimal( increaseVal * ((long) campaignEntity.increases.size() + 1));
-        return campaignEntity.product.price.subtract(totalIncrease);
+        BigDecimal totalIncrease = new BigDecimal( increaseVal * ((long) campaignEntity.getIncreases().size() + 1));
+        return campaignEntity.getProduct().getPrice().subtract(totalIncrease);
     }
 }

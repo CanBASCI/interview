@@ -9,18 +9,52 @@ import java.util.UUID;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class OrderDto {
+    private UUID id;
+    private ProductDto product;
+    private BigDecimal price;
+    private UUID campaignId;
+    private Integer quantity;
 
-    public UUID id;
+    public UUID getId() {
+        return id;
+    }
 
-    public ProductDto product;
+    public void setId(UUID id) {
+        this.id = id;
+    }
 
-    public BigDecimal price;
+    public ProductDto getProduct() {
+        return product;
+    }
 
-    public UUID campaignId;
-    public Integer quantity;
+    public void setProduct(ProductDto product) {
+        this.product = product;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public UUID getCampaignId() {
+        return campaignId;
+    }
+
+    public void setCampaignId(UUID campaignId) {
+        this.campaignId = campaignId;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
 }

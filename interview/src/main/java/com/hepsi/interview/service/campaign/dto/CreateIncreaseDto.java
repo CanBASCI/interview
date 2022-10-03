@@ -1,21 +1,41 @@
 package com.hepsi.interview.service.campaign.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.hepsi.interview.utils.Status;
 import lombok.*;
 
 import java.math.BigDecimal;
-import java.sql.Time;
 import java.util.UUID;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
 public class CreateIncreaseDto {
-    public UUID campaignId;
-    public Integer time;
+    private UUID campaignId;
+    private Integer time;
     @JsonIgnore
-    public BigDecimal price;
+    private BigDecimal price;
+
+    public UUID getCampaignId() {
+        return campaignId;
+    }
+
+    public void setCampaignId(UUID campaignId) {
+        this.campaignId = campaignId;
+    }
+
+    public Integer getTime() {
+        return time;
+    }
+
+    public void setTime(Integer time) {
+        this.time = time;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
 }

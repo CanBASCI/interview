@@ -10,11 +10,8 @@ import java.util.List;
 
 @Mapper(componentModel="spring")
 public interface IncreaseMapper {
-
     IncreaseDto toDto(IncreaseEntity increaseEntity);
-
     List<IncreaseDto> toDtos(List<IncreaseEntity> increaseEntities);
-
     @Mapping(target = "campaign.id", source = "campaignId")
     IncreaseEntity toEntity(CreateIncreaseDto createIncreaseDto);
 }

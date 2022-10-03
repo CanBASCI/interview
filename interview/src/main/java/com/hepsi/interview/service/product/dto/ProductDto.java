@@ -11,15 +11,61 @@ import java.util.UUID;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ProductDto {
-    public UUID id;
-    public String productCode;
-    public BigDecimal price;
-    public Integer stock;
-    public List<OrderDto> orders;
-    public List<CampaignDto> campaigns;
+    private UUID id;
+    private String productCode;
+    private BigDecimal price;
+    private Integer stock;
+    private List<OrderDto> orders;
+    private List<CampaignDto> campaigns;
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public String getProductCode() {
+        return productCode;
+    }
+
+    public void setProductCode(String productCode) {
+        this.productCode = productCode;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public Integer getStock() {
+        return stock;
+    }
+
+    public void setStock(Integer stock) {
+        this.stock = stock;
+    }
+
+    public List<OrderDto> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<OrderDto> orders) {
+        this.orders = orders;
+    }
+
+    public List<CampaignDto> getCampaigns() {
+        return campaigns;
+    }
+
+    public void setCampaigns(List<CampaignDto> campaigns) {
+        this.campaigns = campaigns;
+    }
 }

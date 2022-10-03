@@ -7,12 +7,12 @@ import com.hepsi.interview.service.product.data.entity.ProductEntity;
 import com.hepsi.interview.service.product.dto.ProductDto;
 import java.util.ArrayList;
 import java.util.List;
-import javax.annotation.Generated;
+import javax.annotation.processing.Generated;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-10-03T17:31:44+0300",
+    date = "2022-10-03T18:59:41+0300",
     comments = "version: 1.5.2.Final, compiler: javac, environment: Java 18.0.2 (Oracle Corporation)"
 )
 @Component
@@ -26,11 +26,11 @@ public class OrderMapperImpl implements OrderMapper {
 
         OrderDto orderDto = new OrderDto();
 
-        orderDto.id = orderEntity.id;
-        orderDto.product = productEntityToProductDto( orderEntity.product );
-        orderDto.price = orderEntity.price;
-        orderDto.campaignId = orderEntity.campaignId;
-        orderDto.quantity = orderEntity.quantity;
+        orderDto.setId( orderEntity.getId() );
+        orderDto.setProduct( productEntityToProductDto( orderEntity.getProduct() ) );
+        orderDto.setPrice( orderEntity.getPrice() );
+        orderDto.setCampaignId( orderEntity.getCampaignId() );
+        orderDto.setQuantity( orderEntity.getQuantity() );
 
         return orderDto;
     }
@@ -57,10 +57,10 @@ public class OrderMapperImpl implements OrderMapper {
 
         OrderEntity orderEntity = new OrderEntity();
 
-        orderEntity.product = createOrderDtoToProductEntity( createOrderDto );
-        orderEntity.quantity = createOrderDto.quantity;
-        orderEntity.price = createOrderDto.price;
-        orderEntity.campaignId = createOrderDto.campaignId;
+        orderEntity.setProduct( createOrderDtoToProductEntity( createOrderDto ) );
+        orderEntity.setQuantity( createOrderDto.getQuantity() );
+        orderEntity.setPrice( createOrderDto.getPrice() );
+        orderEntity.setCampaignId( createOrderDto.getCampaignId() );
 
         return orderEntity;
     }
@@ -72,10 +72,10 @@ public class OrderMapperImpl implements OrderMapper {
 
         ProductDto productDto = new ProductDto();
 
-        productDto.id = productEntity.id;
-        productDto.productCode = productEntity.productCode;
-        productDto.price = productEntity.price;
-        productDto.stock = productEntity.stock;
+        productDto.setId( productEntity.getId() );
+        productDto.setProductCode( productEntity.getProductCode() );
+        productDto.setPrice( productEntity.getPrice() );
+        productDto.setStock( productEntity.getStock() );
 
         return productDto;
     }
@@ -87,7 +87,7 @@ public class OrderMapperImpl implements OrderMapper {
 
         ProductEntity productEntity = new ProductEntity();
 
-        productEntity.id = createOrderDto.productId;
+        productEntity.setId( createOrderDto.getProductId() );
 
         return productEntity;
     }
